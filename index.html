@@ -15,14 +15,12 @@
     <button id = "merge-sort">Merge Sort</button>
     <button id = "quick-sort">Quick Sort</button>
     <button id = "bubble-sort">Button Sort</button>
+  </div id = "input-array">
+      <input type="text" id = "sumbit" placeholder="Size of array" value="0" onchange="setSize(this.value)"/>  <button>Set Array  Size</button>
   </div>
-  <form id = "input-form">
-    <label for="input">
-      <input type ="text" placeholder="pick a number" maxlength="10" id = "input-text">
-      <input type ="submit" values="10" id="submit" onchange="setSize(this.value)">
-    </label>
-  </form>  
-</div>
+
+  <div class = "array"></div>
+  <div id = "sorted-array"></div>
   <script src="app.js"></script>
 </body>
 </html>

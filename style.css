@@ -1,0 +1,14 @@
+.array {
+    position: absolute;
+    left:  100px;
+}
+
+
+.individual-ints {
+    width: 2em;
+    background-color: pink;
+    display: inline-block;
+    justify-content: space-between;
+    vertical-align: middle;
+    border: solid;
+}
