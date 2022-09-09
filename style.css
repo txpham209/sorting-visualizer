@@ -1,14 +1,46 @@
-.array {
-    position: absolute;
-    left:  100px;
-}
 
+    
+  body {
+    background-color: rgb(255, 235, 211);
+    font-family: Verdana, sans-serif;
+  }
+    
+  .head {
+    margin-top: 20px;
+    margin-right: 20vw;
+    margin-left: 20vw;
+    text-align: center;
+    font-size: 30px;
+    background-color: #6f459e;
+    color: white;
+    border-radius:19px;
+    font-weight: bolder;
+  }
+    
+  .array {
+    width: 600px;
+    height: 364px;
+    position: relative;
+    margin: 0 auto;
+  }
 
-.individual-ints {
+  .individual-ints {
     width: 2em;
-    background-color: pink;
-    display: inline-block;
-    justify-content: space-between;
-    vertical-align: middle;
+    background-color:rgb(0, 220, 255);
+    position: absolute;
     border: solid;
+    left: 0%;
+    bottom: 0%;
 }
+  #insertionsort, #selectionsort, #mergesort, #bubblesort, #setSize
+  {
+  padding: 12px;
+  font-weight: bolder; 
+  background-color: #6f459e; 
+  border-radius: 10px; 
+  color: white; 
+  font-size: 16px; 
+  border: white; 
+  margin-top: 1vw;
+  margin-right: 1vw;
+  }
