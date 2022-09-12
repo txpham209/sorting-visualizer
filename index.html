@@ -8,16 +8,19 @@
   <link rel="stylesheet" href="/style.css"
 </head>
 <body id = "main">
+  <h1 id = "title">Sort Visualizer</h1>
   <div id = "inputs">
   <div class = "sorting-algo-btns">
     <button id = "insertionsort">Insertion Sort</button>
     <button id = "selectionsort">Selection Sort</button>
     <button id = "mergesort">Merge Sort</button>
     <button id = "bubblesort">Button Sort</button>
-  </div id = "input-array">
-      <input type="text" id = "sumbit" placeholder="Size of array" value="0" onchange="setSize(this.value)"/>  <button id = "setSize">Set Array  Size</button>
+  <div class="input-array">
+    <input type="range" min="10" max="1000" value="100" class="slider" id="myRange" onchange="setSize(this.value)">
   </div>
-
+  <div class="waittime"></div>
+  <input type="range" min="100" max="5000" value="500" class="slider" id="myRange" onchange="setWaitTime(this.value)">
+  </div>
   <div class = "array"></div>
   
   <script src="app.js"></script>

@@ -4,47 +4,58 @@ let selectionSortButton = document.querySelector('#selectionsort');
 let insertionSortButton = document.querySelector('#insertionsort');
 let mergeSortButton = document.querySelector('#mergesort');
 let bubbleSortButton = document.querySelector('#bubblesort')
-let inputs = document.querySelector('#inputs');
-let input = 10;
 
 selectionSortButton.addEventListener('click', selectionSort);
 insertionSortButton.addEventListener('click', insertionSort);
 mergeSortButton.addEventListener('click', mergeSort);
 bubbleSortButton.addEventListener('click', bubbleSort)
 
+let wait_time = 500
+let size = 100
+
+
+function clearBox(elementID)
+{
+    document.querySelector(elementID).innerHTML = "";
+}
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function setSize(input) {
-  createArray(input);
+function setWaitTime(time) {
+  wait_time = time
 }
 
-function createArray(size) {
-  let array = Array.from({length: size}, () => Math.floor(Math.random() * 40));
+async function createArray(size) {
+  let array = Array.from({length: size}, () => Math.floor(Math.random()  * 40));
   let array_space = document.querySelector(".array")
-  let array_elements = array_space.querySelector("div")
-
   array_space.style.gridTemplateRows = `repeat(${size} , 1fr)`;
   
   for (let i = 0; i < size; i++) {
-    let element = document.createElement("div");
-    element.classList.add('individual-ints')
-    array_space.insertAdjacentElement("beforeend", element);
-    element.insertAdjacentText("beforeend", array[i])
+    
+    let square = document.createElement("div");
+    square.classList.add('individual-ints')
+    array_space.insertAdjacentElement("beforeend", square);
+    square.insertAdjacentText("beforeend", array[i])
   }
   let cells = document.querySelectorAll(".individual-ints")
+  let width = (array_space.offsetWidth / size);
+  console.log(width)
 
   for (let i = 0; i < cells.length; i += 1) {
-    cells[i].style.height = `${parseInt(cells[i].innerHTML) * 3}px`;
-    cells[i].style.transform = `translateX(${i * 34}px)`;
-
+    cells[i].style.height = `${parseInt(cells[i].innerHTML) * 14}px`;
+    cells[i].style.transform = `translateX(${i * width }px)`;
+    cells[i].style.width = width + "px"
   }
-
 }
 
-createArray(input)
-// swap elements in array 
+createArray(100)
+
+function setSize(input) {
+  clearBox('.array')
+  createArray(input);
+}
 
 async function selectionSort(delay = 1000) {
   let cells = document.querySelectorAll(".individual-ints")
@@ -59,7 +70,7 @@ async function selectionSort(delay = 1000) {
       cells[j].style.backgroundColor = "red";
         
       // To pause the execution of code for 300 milliseconds
-      await sleep(1000)
+      await sleep(wait_time)
        // To store the integer value of jth bar to var1 
       var val1 = parseInt(cells[j].innerHTML);
        // To store the integer value of smallest bar to var2 
@@ -85,7 +96,7 @@ async function selectionSort(delay = 1000) {
     cells[i].style.height = temp1;
 
     // To pause the execution of code for 300 milliseconds
-    await sleep(1000)
+    await sleep(wait_time)
   
     // Provide skyblue color to the (min-idx)th bar
     cells[smallest].style.backgroundColor = "  rgb(24, 190, 255)";
@@ -110,7 +121,7 @@ async function insertionSort(delay = 1000) {
       cells[i].style.backgroundColor = "red";
       cells[j + 1].style.height = cells[j].style.height;
 
-      await sleep(1000)
+      await sleep(wait_time)
      // cells[key].style.backgroundColor = "red"
       // To pause the execution of code for 1000 milliseconds
       cells[j + 1].innerText = cells[j].innerText;
@@ -125,11 +136,11 @@ async function insertionSort(delay = 1000) {
       // To pause the execution of code for 300 milliseconds
       }
       cells[j + 1].style.height = height;
-      await sleep(1000)
+      await sleep(wait_time)
     }  
 }  
 
-async function mergeSort(delay = 1000) {
+async function mergeSort() {
   let cells = document.querySelectorAll(".individual-ints");
   let arr = [];
   for (let i = 0; i < cells.length; i++) {
@@ -150,7 +161,7 @@ async function mergeSortVisual(arr, l, r) {
   await mergeSortVisual(arr,m+1,r);
   await merge(arr,l,m,r);
   
-  await sleep(800)
+  await sleep(wait_time)
 }
 
 async function merge(arr, l, m, r)
@@ -181,12 +192,12 @@ async function merge(arr, l, m, r)
     var k = l;
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
-            cells[k].style.height = `${L[i] * 3}px`;
+            cells[k].style.height = `${L[i] * 15}px`;
             arr[k] = L[i];
             i++;
         }
         else {
-            cells[k].style.height = `${R[j] * 3}px`;
+            cells[k].style.height = `${R[j] * 15}px`;
             arr[k] = R[j];
             j++;
         }
@@ -197,7 +208,7 @@ async function merge(arr, l, m, r)
     // Copy the remaining elements of
     // L[], if there are any
     while (i < n1) {
-        cells[k].style.height = `${L[i] * 3}px`;
+        cells[k].style.height = `${L[i] * 15}px`;
         arr[k] = L[i];
         cells[k].innerHTML = arr[k];
         cells[k].style.backgroundColor = "orange"
@@ -208,7 +219,7 @@ async function merge(arr, l, m, r)
     // Copy the remaining elements of
     // R[], if there are any
     while (j < n2) {
-        cells[k].style.height = `${R[j] * 3}px`;
+        cells[k].style.height = `${R[j] * 15}px`;
         arr[k] = R[j];
         cells[k].innerHTML = arr[k];
         cells[k].style.backgroundColor = "orange"
@@ -242,7 +253,7 @@ async function bubbleSort() {
         }
   
       // To pause the execution of code for 300 milliseconds
-      await sleep(1000)
+      await sleep(wait_time)
       }
     }
     cells[0].style.backgroundColor = 'green'

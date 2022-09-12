@@ -1,9 +1,25 @@
 
-    
+ *{
+  font-family: "CodeSaver-Regular", serif;
+  font-size: 2.5vmin;
+  font-weight: 100;
+  user-select: none;
+}
+
+
+  
   body {
-    background-color: rgb(255, 235, 211);
+    background-color: whitesmoke;
     font-family: Verdana, sans-serif;
   }
+
+  h1 {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    width: auto;
+    font-size: 7vmin;
+}
     
   .head {
     margin-top: 20px;
@@ -18,29 +34,65 @@
   }
     
   .array {
-    width: 600px;
-    height: 364px;
-    position: relative;
-    margin: 0 auto;
+    width: 50%;
+    height: 75%;
+    border: solid black;
+    position: absolute;
+    left: 49%;
   }
 
   .individual-ints {
     width: 2em;
     background-color:rgb(0, 220, 255);
     position: absolute;
-    border: solid;
     left: 0%;
     bottom: 0%;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+\    border-right: solid rgb(215, 215, 215);
+
 }
-  #insertionsort, #selectionsort, #mergesort, #bubblesort, #setSize
+
+  #inputs 
   {
+    width: 50%;
+  }
+  #insertionsort, #selectionsort, #mergesort, #bubblesort
+  {
+  width: auto;
   padding: 12px;
   font-weight: bolder; 
-  background-color: #6f459e; 
-  border-radius: 10px; 
-  color: white; 
+  border-radius: 5px; 
+  color: black; 
   font-size: 16px; 
-  border: white; 
   margin-top: 1vw;
   margin-right: 1vw;
+  }
+
+  .slider {
+    -webkit-appearance: none;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: black;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background:black;
+    cursor: pointer;
   }
